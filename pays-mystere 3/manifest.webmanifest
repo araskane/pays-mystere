@@ -1,0 +1,16 @@
+{
+  "name": "Pays Mystère",
+  "short_name": "Pays Mystère",
+  "description": "Le jeu de géographie pour reconnaître tous les pays du monde.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#d6e4e9",
+  "theme_color": "#eef3f5",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ]
+}

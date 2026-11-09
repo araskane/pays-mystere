@@ -1,0 +1,157 @@
+
+  .jeu.svelte-13fdhqc {
+    --ocean: #a9e3ea;
+    --terre: #fffaf2;
+    --frontiere: #b9a27c;
+    --cible: #ff5e00;
+    --trouve: var(--pm-vert);
+    --trouve-fonce: var(--pm-vert-fonce);
+    --aide: #8ee0bd;
+    --rate: #ff8fa8;
+    --rate-fonce: var(--pm-rose-fonce);
+    --voisine: #ffe2c7;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--pm-fond);
+    color: var(--pm-encre);
+    font-family: var(--pm-police-texte);
+  }
+  .jeu.svelte-13fdhqc > .pm-entete-jeu {
+    padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  }
+  .carte.svelte-13fdhqc {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--ocean);
+  }
+  .carte-fr.svelte-13fdhqc {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+  }
+  .chargement.svelte-13fdhqc {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--pm-secondaire);
+    font-weight: 600;
+  }
+  /* le bandeau laisse la place aux boutons de zoom, à droite */
+  .carte.svelte-13fdhqc #cqb {
+    left: calc(50% - 26px);
+  }
+  .carte.svelte-13fdhqc .frame {
+    fill: #bfe9ef;
+    stroke: #fff;
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+  .carte.svelte-13fdhqc .u {
+    fill: var(--terre);
+    stroke: var(--frontiere);
+    stroke-width: 0.6;
+    vector-effect: non-scaling-stroke;
+    transition: fill 0.45s var(--pm-courbe-sortie);
+  }
+  .carte.svelte-13fdhqc .u.t {
+    fill: var(--cible);
+    stroke: var(--pm-encre);
+    stroke-width: 1.6;
+  }
+  .carte.svelte-13fdhqc .u.ok {
+    fill: var(--trouve);
+    stroke: var(--trouve-fonce);
+  }
+  .carte.svelte-13fdhqc .u.late {
+    fill: var(--aide);
+    stroke: var(--trouve-fonce);
+  }
+  .carte.svelte-13fdhqc .u.miss {
+    fill: var(--rate);
+    stroke: var(--rate-fonce);
+  }
+  .carte.svelte-13fdhqc .u.front {
+    fill: var(--voisine);
+    stroke: var(--cible);
+    stroke-width: 1.2;
+    cursor: pointer;
+  }
+  .carte.svelte-13fdhqc .u.sel {
+    fill: var(--cible);
+    stroke: var(--pm-encre);
+    stroke-width: 1.8;
+  }
+  .carte.svelte-13fdhqc .u.flash {
+    fill: #ff3b5c !important;
+    transition: none;
+  }
+  .carte.svelte-13fdhqc .u.dim {
+    opacity: 0.45;
+  }
+  .conq.svelte-13fdhqc .carte:where(.svelte-13fdhqc) .u {
+    cursor: pointer;
+  }
+  .carte.svelte-13fdhqc .lbl {
+    font-family: var(--pm-police-texte);
+    font-weight: 700;
+    fill: var(--pm-encre);
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-linejoin: round;
+  }
+  .carte.svelte-13fdhqc .lbl.ms {
+    fill: var(--pm-rose-fonce);
+  }
+  .carte.svelte-13fdhqc .pulse {
+    fill: none;
+    stroke: var(--cible);
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+  }
+  .voile.svelte-13fdhqc {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    background: color-mix(in srgb, var(--ocean) 45%, transparent);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    animation: svelte-13fdhqc-voile 0.32s var(--pm-courbe-sortie);
+  }
+  footer.svelte-13fdhqc {
+    display: grid;
+    gap: 8px;
+    padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    background: #fff;
+    border-top: 1px solid var(--pm-trait);
+    box-shadow: 0 -6px 18px -14px rgba(42, 10, 107, 0.35);
+  }
+  .fini.svelte-13fdhqc footer:where(.svelte-13fdhqc) {
+    visibility: hidden;
+  }
+  @keyframes svelte-13fdhqc-voile {
+    from {
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .voile.svelte-13fdhqc {
+      animation: none;
+    }
+    .carte.svelte-13fdhqc .u {
+      transition: none;
+    }
+  }

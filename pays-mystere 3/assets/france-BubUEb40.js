@@ -1,0 +1,1 @@
+import{X as e}from"./sons-BKk3Pa2a.js";import{t}from"./JeuFrance-CzBR9FVw.js";e(t,{target:document.getElementById(`app`)});
